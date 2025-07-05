@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # SlackConnect - Message Scheduler
 # A full-stack application to send and schedule messages to Slack channels with OAuth authentication and token refresh capabilities.
 
@@ -280,5 +278,3 @@ ngrok http 3001
 # - JWT token expiration and rotation
 # - CORS configuration for cross-origin requests
 # - Input validation and sanitization
-
-# End of README
