@@ -1,5 +1,5 @@
 # SlackConnect 
-##Installation
+
 
 A full-stack application to send and schedule messages to Slack channels.
 
