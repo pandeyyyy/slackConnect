@@ -72,6 +72,8 @@ SLACK_CLIENT_SECRET=your-client-secret-here
 SLACK_REDIRECT_URI=https://abc123-def456.ngrok-free.app/api/auth/slack/callback
 FRONTEND_URL=http://localhost:3000
 
+text
+
 Replace:
 - your-client-id-here with your actual Slack Client ID
 - your-client-secret-here with your actual Slack Client Secret
