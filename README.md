@@ -257,5 +257,9 @@ Attaching pictures of how it looks like
 
 
 
+received all the messages - instant and scheduled both
+![image](https://github.com/user-attachments/assets/8097b2ef-7ca0-4684-b780-118fddabddc7)
+
+
 
 
