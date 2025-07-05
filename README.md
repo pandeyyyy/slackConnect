@@ -278,3 +278,16 @@ Critical operations need multiple layers of reliability. Combining external serv
 - JWT token expiration and rotation
 - CORS configuration for cross-origin requests
 - Input validation and sanitization
+
+
+Attaching pictures of how it looks like
+![Screenshot (488)](https://github.com/user-attachments/assets/6711477f-2c1a-42cd-b5ff-539887f40272)
+![Screenshot (489)](https://github.com/user-attachments/assets/2c14f059-906c-4d75-af1b-3f2b1d8ca16a)
+![Screenshot (490)](https://github.com/user-attachments/assets/e73c6e0e-2790-47cb-879a-0fdc54394de4)
+![Screenshot (491)](https://github.com/user-attachments/assets/5d5e080d-d83a-46a0-b0ba-ee165dfcfd73)
+![Screenshot (492)](https://github.com/user-attachments/assets/540f5018-a979-42e2-9b4a-e93b151f5071)
+
+
+
+
+
