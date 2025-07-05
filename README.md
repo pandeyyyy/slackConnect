@@ -59,14 +59,14 @@ https://abc123-def456.ngrok-free.app/api/auth/slack/callback
 
 ### Environment Configuration
 Create .env file in backend folder:
-NODE_ENV=development
-PORT=3001
-MONGODB_URI=mongodb://localhost:27017/slackconnect2025
-JWT_SECRET=slackconnect-secret-key-2025
-SLACK_CLIENT_ID=your-client-id-here
-SLACK_CLIENT_SECRET=your-client-secret-here
-SLACK_REDIRECT_URI=https://abc123-def456.ngrok-free.app/api/auth/slack/callback
-FRONTEND_URL=http://localhost:3000
+-NODE_ENV=development
+-PORT=3001
+-MONGODB_URI=mongodb://localhost:27017/slackconnect2025
+-JWT_SECRET=slackconnect-secret-key-2025
+-SLACK_CLIENT_ID=your-client-id-here
+-SLACK_CLIENT_SECRET=your-client-secret-here
+-SLACK_REDIRECT_URI=https://abc123-def456.ngrok-free.app/api/auth/slack/callback
+-FRONTEND_URL=http://localhost:3000
 
 Replace:
 - your-client-id-here with your actual Slack Client ID
