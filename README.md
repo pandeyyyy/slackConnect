@@ -1,5 +1,4 @@
-# SlackConnect 
-
+# SlackConnect - Message Scheduler
 
 A full-stack application to send and schedule messages to Slack channels.
 
@@ -27,17 +26,40 @@ text
 
 ### Setup ngrok
 
-1. Sign up at [ngrok.com](https://ngrok.com) and get your auth token
-2. Authenticate: `ngrok config add-authtoken YOUR_AUTH_TOKEN`
-3. Start tunnel: `ngrok http 3001`
-4. Copy the HTTPS URL (example: `https://abc123.ngrok.io`)
+**Why ngrok is needed**: Slack requires HTTPS URLs for OAuth redirects. Since local development runs on HTTP (localhost), we use ngrok to create a secure HTTPS tunnel to our local server.
+
+1. Download and install ngrok from [ngrok.com](https://ngrok.com/download)
+2. Sign up at [ngrok.com](https://ngrok.com) and get your auth token
+3. Authenticate ngrok:
+ngrok config add-authtoken YOUR_AUTH_TOKEN
+
+text
+
+4. Start ngrok tunnel for port 3001:
+ngrok http 3001
+
+text
+
+5. You will get output like this:
+Session Status online
+Account your-email@example.com
+Version 3.0.0
+Region United States (us)
+Latency 45ms
+Web Interface http://127.0.0.1:4040
+Forwarding https://abc123-def456.ngrok-free.app -> http://localhost:3001
+Forwarding http://abc123-def456.ngrok-free.app -> http://localhost:3001
+
+text
+
+6. Copy the HTTPS URL (example: `https://abc123-def456.ngrok-free.app`)
 
 ### Create Slack App
 
 1. Go to [api.slack.com/apps](https://api.slack.com/apps)
 2. Create new app "SlackConnect" in your workspace
 3. In OAuth & Permissions, add redirect URL:
-https://your-ngrok-url.ngrok.io/api/auth/slack/callback
+https://abc123-def456.ngrok-free.app/api/auth/slack/callback
 
 text
 
@@ -61,10 +83,15 @@ MONGODB_URI=mongodb://localhost:27017/slackconnect2025
 JWT_SECRET=slackconnect-secret-key-2025
 SLACK_CLIENT_ID=your-client-id-here
 SLACK_CLIENT_SECRET=your-client-secret-here
-SLACK_REDIRECT_URI=https://your-ngrok-url.ngrok.io/api/auth/slack/callback
+SLACK_REDIRECT_URI=https://abc123-def456.ngrok-free.app/api/auth/slack/callback
 FRONTEND_URL=http://localhost:3000
 
 text
+
+Replace:
+- `your-client-id-here` with your actual Slack Client ID
+- `your-client-secret-here` with your actual Slack Client Secret
+- `abc123-def456.ngrok-free.app` with your actual ngrok URL
 
 ### Run the Application
 
@@ -91,6 +118,7 @@ The app will open at `http://localhost:3000`. Click "Connect to Slack" to authen
 
 ## Important Notes
 
-- Update your ngrok URL in both `.env` file and Slack app settings each time you restart ngrok
+- Update your ngrok URL in both `.env` file and Slack app settings each time you restart ngrok (free version generates new URLs)
 - Make sure MongoDB is running before starting the backend
 - Never commit your `.env` file to version control
+- Keep ngrok running while testing the application
