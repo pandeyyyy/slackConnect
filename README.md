@@ -183,10 +183,10 @@ Slack's OAuth system mandates HTTPS endpoints for security, but local developmen
 - Direct HTTP-to-HTTPS conversion isn't possible without SSL certificates
 
 #### Solution
-# Use ngrok to create HTTPS tunnel
+### Use ngrok to create HTTPS tunnel
 npm install -g ngrok
 ngrok http 3001
-# Update Slack app with ngrok HTTPS URL
+### Update Slack app with ngrok HTTPS URL
 
 #### Learning
 Always set up HTTPS tunneling early when working with OAuth providers. Ngrok became essential for development workflow, requiring team documentation and setup automation.
@@ -220,40 +220,6 @@ refresh_token: user.refreshToken,
 #### Learning
 Discovered Slack's token rotation system where access tokens expire every 12 hours and must be refreshed using refresh tokens. Understanding OAuth 2.0 flow - authorization code grant, token exchange, and the importance of scopes became crucial.
 
-### Challenge 3: Reliable Message Delivery
-
-#### Problem
-Ensuring messages deliver despite server restarts, network failures, or Slack API issues. Initial implementation relied solely on Slack's native scheduling without local tracking or retry mechanisms.
-
-#### Root Cause Analysis
-- Slack's chat.scheduleMessage API can fail due to rate limits or temporary issues
-- Server restarts lose in-memory scheduled tasks
-- No visibility into message delivery status
-- No retry mechanism for failed deliveries
-
-#### Solution
-Hybrid architecture with dual-layer reliability:
-
-// Primary: Slack native scheduling
-const slackResponse = await client.chat.scheduleMessage({
-channel, text, post_at: postAt
-});
-
-
-// Secondary: Database tracking + cron backup
-const scheduledMessage = new ScheduledMessage({
-slackScheduledMessageId: slackResponse.scheduled_message_id,
-status: 'pending',
-retryCount: 0
-});
-
-// Background processor with retry logic
-cron.schedule('* * * * *', async () => {
-await this.processPendingMessages();
-});
-
-#### Learning
-Critical operations need multiple layers of reliability. Combining external service capabilities with local fallback mechanisms ensures robustness
 
 ### Key Technical Learnings
 
