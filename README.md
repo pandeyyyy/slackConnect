@@ -1,6 +1,6 @@
 # SlackConnect - Message Scheduler
 
-A full-stack application to send and schedule messages to Slack channels with OAuth authentication and token refresh capabilities.
+A full-stack application to send and schedule messages to Slack channels with OAuth 2.0 authentication and token refresh capabilities.
 
 ## Detailed Setup Instructions
 
